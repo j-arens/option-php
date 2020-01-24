@@ -198,7 +198,7 @@ class Option implements OptionInterface
             },
             function ($opt) {
                 return $opt instanceof Some ? $opt : $this;
-            },
+            }
         );
     }
 }
