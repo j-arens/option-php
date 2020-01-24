@@ -1,0 +1,30 @@
+{
+    "name": "o/option",
+    "description": "A basic port of the Option type from Rust",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "j-arens",
+            "email": "arens.joshua@sbcglobal.net"
+        }
+    ],
+    "autoload": {
+      "psr-4": {
+        "O\\": "src/"  
+      }
+    },
+    "scripts": {
+      "analyse": "phpstan analyse src",
+      "lint": "phpcs",
+      "test:unit": "kahlan --spec=test/unit --reporter=verbose"
+    },
+    "require": {
+      "php": ">=7.1"
+    },
+    "require-dev": {
+        "kahlan/kahlan": "^4.6",
+        "squizlabs/php_codesniffer": "^3.5",
+        "phpstan/phpstan": "^0.12.7"
+    }
+}
