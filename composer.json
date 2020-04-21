@@ -20,7 +20,12 @@
       "test:unit": "kahlan --spec=test/unit --reporter=verbose"
     },
     "require": {
-      "php": ">=7.1"
+      "php": ">=7.1.3"
+    },
+    "config": {
+      "platform": {
+        "php": "7.1.3"
+      }
     },
     "require-dev": {
         "kahlan/kahlan": "^4.6",
