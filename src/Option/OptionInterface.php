@@ -47,7 +47,7 @@ interface OptionInterface
     /**
      * Maps an Option<T> to Option<U> by applying a function to a contained value.
      *
-     * @param callable $op
+     * @param callable(mixed): mixed $op
      * @return OptionInterface
      */
     public function map(callable $op): OptionInterface;
@@ -56,7 +56,7 @@ interface OptionInterface
      * Applies a function to the contained value (if any), or returns the provided default (if not).
      *
      * @param mixed $fallback
-     * @param callable $op
+     * @param callable(mixed): mixed $op
      * @return mixed
      */
     public function mapOr($fallback, callable $op);
@@ -64,8 +64,8 @@ interface OptionInterface
     /**
      * Applies a function to the contained value (if any), or computes a default (if not).
      *
-     * @param callable $fallback
-     * @param callable $op
+     * @param callable(): mixed $fallback
+     * @param callable(mixed): mixed $op
      * @return mixed
      */
     public function mapOrElse(callable $fallback, callable $op);
@@ -81,17 +81,17 @@ interface OptionInterface
     /**
      * Returns None if the opt is None, otherwise calls op with the wrapped value and returns the result.
      *
-     * @param callable $op
+     * @param callable(mixed): OptionInterface $op
      * @return OptionInterface
      */
     public function andThen(callable $op): OptionInterface;
 
     /**
      * Returns None if the opt is None, otherwise calls predicate with the wrapped value and returns:
-     * - Some(t) if predicate returns true (where t is the wrapped value), and
-     * - None if predicate returns false.
+     * - Some(t) if predicate returns truthy (where t is the wrapped value), and
+     * - None if predicate returns falsey.
      *
-     * @param callable $op
+     * @param callable(mixed): mixed $op
      * @return OptionInterface
      */
     public function filter(callable $op): OptionInterface;
@@ -107,7 +107,7 @@ interface OptionInterface
     /**
      * Returns the opt if it contains a value, otherwise calls op and returns the result.
      *
-     * @param callable $op
+     * @param callable(): OptionInterface $op
      * @return OptionInterface
      */
     public function orElse(callable $op): OptionInterface;
