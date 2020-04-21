@@ -143,6 +143,7 @@ class Option implements OptionInterface
      */
     public function filter(callable $op): OptionInterface
     {
+        /** @psalm-suppress MissingClosureParamType */
         return $this->andThen(function ($val) use ($op) {
             return $op($val) ? $this : new None();
         });
@@ -192,13 +193,11 @@ class Option implements OptionInterface
      */
     public function flatten(): OptionInterface
     {
-        return $this->mapOrElse(
-            function () {
-                return new None();
-            },
-            function ($opt) {
-                return $opt instanceof Some ? $opt : $this;
-            }
-        );
+        if ($this->isNone()) {
+            return new None();
+        }
+        /** @var mixed $unwrapped */
+        $unwrapped = $this->unwrap();
+        return $unwrapped instanceof Some ? $unwrapped : $this;
     }
 }

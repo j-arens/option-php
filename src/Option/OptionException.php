@@ -23,7 +23,7 @@ class OptionException extends Exception
      */
     public static function illegalUnwrap(): OptionException
     {
-        return new OptionException('tried to unwrap on None');
+        return new OptionException('Tried to unwrap on None');
     }
 
     /**

@@ -39,7 +39,7 @@ jobs:
         run: composer lint
 
       - name: analyse
-        run: composer analyse
+        run: composer analyze
 
       - name: unit test
         run: composer test:unit

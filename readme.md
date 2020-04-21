@@ -35,10 +35,10 @@ divide(1, 1); // Some(1)
 $ composer lint
 ```
 
-## Analysing
+## Analyzing
 
 ```
-$ composer analyse
+$ composer analyze
 ```
 
 ## Testing
